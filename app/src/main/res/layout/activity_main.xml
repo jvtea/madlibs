@@ -14,7 +14,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:text="HALLO! WELKOM BIJ MAD LIBS. HET WORDT ECHT LEUK. JE MOET WOORDEN IN EEN VERHAAL INVULLEN ZONDER DAT JE WEET WAT HET VERHAAL IS. OFTEWEL: EINDELOOS GENIETEN. VEEL PLEZIER EN DRUK HIERONDER OM TE BEGINNEN!"
+        android:text="HELLO AND WELCOME TO MAD LIBS!!!!! It is going to be ABSOLUTELY AMAZING. Pick a story by it's name and fill in all the missing words... WITHOUT KNOWING THE ACTUAL STORY. Click on BEGIN to begin having FUN!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,8 +27,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="15dp"
-        android:text="BEGINNEN!"
+        android:backgroundTint="#00f59b"
         android:onClick="beginClicked"
+        android:text="BEGIN!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

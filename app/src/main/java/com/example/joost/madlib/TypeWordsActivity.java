@@ -6,48 +6,66 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class TypeWordsActivity extends AppCompatActivity {
 
-    int phTotal;
+    //int phTotal;
     int phLeft;
     String nextPhType;
 
-    //Story story = new Story;
+    Story story;
 
+    TextView infoText;
 
-    int inputTextID = getResources().getIdentifier("wordInputText", "id", getPackageName());
-    TextInputEditText inputText = findViewById(inputTextID);
+    EditText inputText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_type_words);
 
-        int textID = getResources().getIdentifier("textView2", "id", getPackageName());
+        // get textviews
+        inputText = findViewById(R.id.editText);
+        infoText = findViewById(R.id.infoText);
 
-        TextView storyText = findViewById(textID);
-
+        // set story and placeholder information
         Intent intent = getIntent();
-
-        Story story = (Story) intent.getSerializableExtra("story");
-
-        phTotal = story.getPlaceholderCount();
-
+        story = (Story) intent.getSerializableExtra("story");
         phLeft = story.getPlaceholderRemainingCount();
-
-        nextPhType = story.getNextPlaceholder();
-
-        storyText.setText("Please enter a: " + nextPhType + "\n"
+        nextPhType = story.getNextPlaceholder().toLowerCase();
+        infoText.setText("Please enter a/an: " + nextPhType + "\n"
                            + "Words left: " + phLeft);
     }
 
-    public void okButtonClicked (View view) {
+    public int okButtonClicked (View view) {
 
-        Log.d("Input Text: ", inputText.getText().toString());
+        // if nothing filled in, don't use button functionality
+        if (inputText.getText().toString().equals("")) {
+            return 1;
+        }
 
-        // figure out how to do this properly, Initialize outside onCreate and with simple.txt?
-        this.story.fillInPlaceholder("LEUK");
+        // fill in placeholder and empty input field
+        story.fillInPlaceholder(inputText.getText().toString());
+        inputText.setText("");
+
+        // if all placeholders filled in, go to story screen
+        if (story.isFilledIn()) {
+            Intent intent = new Intent(this, StoryActivity.class);
+            intent.putExtra("story", story);
+            startActivity(intent);
+            finish();
+            return 0;
+        }
+        else {
+            // update for new placeholder
+            phLeft = story.getPlaceholderRemainingCount();
+            nextPhType = story.getNextPlaceholder().toLowerCase();
+            infoText.setText("Please enter a/an: " + nextPhType + "\n"
+                    + "Words left: " + phLeft);
+            return 0;
+        }
+
     }
 }

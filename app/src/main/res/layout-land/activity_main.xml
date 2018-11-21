@@ -8,36 +8,42 @@
 
     <TextView
         android:id="@+id/textWelcome"
-        android:layout_width="306dp"
+        android:layout_width="0dp"
         android:layout_height="121dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:text="HALLO! WELKOM BIJ MAD LIBS. HET WORDT ECHT LEUK. JE MOET WOORDEN IN EEN VERHAAL INVULLEN ZONDER DAT JE WEET WAT HET VERHAAL IS. OFTEWEL: EINDELOOS GENIETEN. VEEL PLEZIER EN DRUK HIERONDER OM TE BEGINNEN!"
+        android:text="HELLO AND WELCOME TO MAD LIBS!!!!! It is going to be ABSOLUTELY AMAZING. Pick a story by it's name and fill in all the missing words... WITHOUT KNOWING THE ACTUAL STORY. Click on BEGIN to begin having FUN!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/MadLibs_ImageView"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/BEGINNEN"
+        android:id="@+id/Begin_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="15dp"
-        android:text="BEGINNEN!"
+        android:backgroundTint="#00f59b"
+        android:onClick="beginClicked"
+        android:text="BEGIN!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <ImageView
         android:id="@+id/MadLibs_ImageView"
-        android:layout_width="253dp"
-        android:layout_height="212dp"
+        android:layout_width="209dp"
+        android:layout_height="234dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.026"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51"
         app:srcCompat="@drawable/madlibs" />
 </android.support.constraint.ConstraintLayout>
