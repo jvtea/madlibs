@@ -35,7 +35,7 @@
 
     <ImageView
         android:id="@+id/MadLibs_ImageView"
-        android:layout_width="269dp"
+        android:layout_width="0dp"
         android:layout_height="265dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
