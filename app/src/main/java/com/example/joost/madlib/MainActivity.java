@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, StoryPickActivity.class);
         startActivity(intent);
 
-        // probeer zoner finish hier of met back altijd naar dit scherm.
     }
 
 
